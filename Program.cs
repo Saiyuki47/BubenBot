@@ -11,6 +11,8 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using Victoria;
+using System.IO;
+using BubenBot; 
 
 namespace BubenBot
 {
@@ -19,23 +21,27 @@ namespace BubenBot
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
         private DiscordSocketClient _client;
-        private CommandService _commands;
+        private CommandService _commandService;
         private IServiceProvider _services;
         private Config _config;
+        private Commands _commands;
 
 
         public async Task RunBotAsync()
         {
             _client = new DiscordSocketClient();
-            _commands = new CommandService();
+            _commandService = new CommandService();
             _config = new Config();
+            _commands = new Commands();
 
             _services = new ServiceCollection()
                 .AddSingleton(_client)
-                .AddSingleton(_commands)
+                .AddSingleton(_commandService)
                 .BuildServiceProvider();
 
             await InitializeConfigDataAsync();
+
+            await InitializeVoiceLinesFolderAsync();
 
             _client.Log += _client_Log;
 
@@ -57,10 +63,17 @@ namespace BubenBot
             return Task.CompletedTask;
         }
 
+
+
+        public async Task InitializeVoiceLinesFolderAsync()
+        {
+            await _commands.InitializeVoiceLinesFolder();
+        }
+
         public async Task RegisterCommandsAsync()
         {
             _client.MessageReceived += HandleCommandAsync;
-            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+            await _commandService.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
         }
 
         private async Task HandleCommandAsync(SocketMessage arg)
@@ -72,7 +85,7 @@ namespace BubenBot
             int argPos = 0;
             if (message.HasStringPrefix(Config.ConfigProperties.Prefix, ref argPos))
             {
-                var result = await _commands.ExecuteAsync(context, argPos, _services);
+                var result = await _commandService.ExecuteAsync(context, argPos, _services);
                 if (!result.IsSuccess) Console.WriteLine(result.ErrorReason);
                 if (result.Error.Equals(CommandError.UnmetPrecondition)) await message.Channel.SendMessageAsync(result.ErrorReason);
             }

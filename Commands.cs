@@ -18,9 +18,27 @@ namespace BubenBot
     {
         string printString = "";
         Random rand = new Random();
+        //Get Target UserName from Config
         string TargetName = Config.ConfigProperties.TargetUserName;
         //Check if a Specific user is on the server
         private bool IsTargetOnServer => Context.Guild.Users.Any(x => x.Username.Equals(TargetName));
+
+        public static string voiceLinesPath { get; set; } = Directory.GetCurrentDirectory() + "\\VoiceLines\\";
+
+
+        public async Task InitializeVoiceLinesFolder()
+        {
+            if (!File.Exists(voiceLinesPath))
+            {
+                Directory.CreateDirectory(voiceLinesPath);
+                await LoggingService.LogAsync(new Discord.LogMessage(LogSeverity.Error, "Source", "No VoiceLines Folder found! A new one was generated"));
+            }
+            else 
+            {
+                await LoggingService.LogAsync(new Discord.LogMessage(LogSeverity.Info, "Source", "VoiceLines Folder found :D"));
+            }
+
+        }
 
         List<string> befehle = new List<string>()
             {
@@ -115,7 +133,7 @@ namespace BubenBot
             // For the next step with transmitting audio, you would want to pass this Audio Client in to a service.
             var audioClient = await channel.ConnectAsync();
 
-            string[] files = Directory.GetFiles(@"C:\Users\deine\Desktop\Madi ist ein Huresohn", "*.mp3");
+            string[] files = Directory.GetFiles(voiceLinesPath, "*.mp3");
 
             await SendAsync(audioClient, files[rand.Next(files.Length)]);
             //await Context.Channel.SendMessageAsync(files[rand.Next(files.Length)]);
@@ -225,6 +243,8 @@ namespace BubenBot
             await ReplyAsync("done");
             return;
         }
+
+
 
     }
 }

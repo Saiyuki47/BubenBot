@@ -12,7 +12,7 @@ namespace BubenBot
     public class Config
     {
         public static string jsonpath { get; set; } = Directory.GetCurrentDirectory() + "\\config.json";
-        public static ConfigModel ConfigProperties { get; set; }
+        public static ConfigModel ConfigProperties { get; set; } = StandardConfig();
 
         public async Task InitializeConfigData()
         {

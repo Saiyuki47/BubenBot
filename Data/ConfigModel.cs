@@ -16,7 +16,9 @@ namespace BubenBot.Data
         //Comes after Activity
         public string Status { get; set; }
         //The Name of the Target for example "Tim32"
-        public string TargetUserName { get; set; }
+        public string TargetUserName { get; set; } = "defaultuser";
+        //Path of the Folder with the Voiceline
+        public string VoiceLinePath { get; set; }
 
     }
 }
