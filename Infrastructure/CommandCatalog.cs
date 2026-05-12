@@ -14,7 +14,8 @@ public static class CommandCatalog
         "age",
         "echo",
         "meme",
-        "lsuser"
+        "lsuser",
+        "votekick"
     };
 
     // Commands only shown when the target user is on the server

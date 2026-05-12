@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Threading.Tasks;
 using BubenBot.Data;
+using BubenBot.Services;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -20,12 +21,26 @@ class Program
 
     public async Task RunBotAsync()
     {
-        _client = new DiscordSocketClient();
+        var config = new DiscordSocketConfig
+        {
+            // GuildMembers and MessageContent are PRIVILEGED intents.
+            // They must be enabled in the Discord Developer Portal:
+            // https://discord.com/developers/applications → Bot → Privileged Gateway Intents
+            GatewayIntents = GatewayIntents.Guilds
+                           | GatewayIntents.GuildMessages
+                           | GatewayIntents.GuildVoiceStates
+                           | GatewayIntents.GuildMessageReactions
+                           | GatewayIntents.GuildMembers    // PRIVILEGED — enable in portal
+                           | GatewayIntents.MessageContent  // PRIVILEGED — enable in portal
+        };
+
+        _client = new DiscordSocketClient(config);
         _commandService = new CommandService();
 
         _services = new ServiceCollection()
             .AddSingleton(_client)
             .AddSingleton(_commandService)
+            .AddSingleton<VotekickService>()
             .BuildServiceProvider();
 
         await _config.InitializeConfigData();
