@@ -1,31 +1,32 @@
 ﻿using Discord;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BubenBot
 {
     public static class EmbedHandler
     {
-        public static async Task<Embed> CreateBasicEmbed(string title, string description, Color color)
+        public static Task<Embed> CreateBasicEmbed(string title, string description, Color color)
         {
-            var embed = await Task.Run(() => (new EmbedBuilder()
+            var embed = new EmbedBuilder()
                 .WithTitle(title)
                 .WithDescription(description)
                 .WithColor(color)
-                .WithCurrentTimestamp().Build()));
-            return embed;
+                .WithCurrentTimestamp()
+                .Build();
+
+            return Task.FromResult(embed);
         }
 
-        public static async Task<Embed> CreateErrorEmbed(string source, string error)
+        public static Task<Embed> CreateErrorEmbed(string source, string error)
         {
-            var embed = await Task.Run(() => new EmbedBuilder()
+            var embed = new EmbedBuilder()
                 .WithTitle($"ERROR OCCURED FROM - {source}")
                 .WithDescription($"**Error Details**: \n{error}")
                 .WithColor(Color.DarkRed)
-                .WithCurrentTimestamp().Build());
-            return embed;
+                .WithCurrentTimestamp()
+                .Build();
+
+            return Task.FromResult(embed);
         }
     }
 }
