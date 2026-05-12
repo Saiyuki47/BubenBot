@@ -217,11 +217,11 @@ namespace BubenBot
             {
                 for (int i = 0; i < index; i++)
                 {
-                    await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());
+                    await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].FullName);
                 }
             }
             else
-                await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());
+                await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].FullName);
 
         }
 
