@@ -23,15 +23,13 @@ class Program
     {
         var config = new DiscordSocketConfig
         {
-            // GuildMembers and MessageContent are PRIVILEGED intents.
-            // They must be enabled in the Discord Developer Portal:
-            // https://discord.com/developers/applications → Bot → Privileged Gateway Intents
+            EnableVoiceDaveEncryption = true,
             GatewayIntents = GatewayIntents.Guilds
                            | GatewayIntents.GuildMessages
                            | GatewayIntents.GuildVoiceStates
                            | GatewayIntents.GuildMessageReactions
-                           | GatewayIntents.GuildMembers    // PRIVILEGED — enable in portal
-                           | GatewayIntents.MessageContent  // PRIVILEGED — enable in portal
+                           | GatewayIntents.GuildMembers
+                           | GatewayIntents.MessageContent
         };
 
         _client = new DiscordSocketClient(config);

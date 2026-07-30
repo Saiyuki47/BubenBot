@@ -12,7 +12,7 @@ namespace BubenBot.Commands;
 public sealed class MediaCommands : CommandModuleBase
 {
     [Command("madi", RunMode = RunMode.Async)]
-    public async Task JoinChannel([Remainder] IVoiceChannel? channel = null)
+    public async Task JoinChannel([Remainder] IVoiceChannel channel = null)
     {
         channel ??= (Context.User as IGuildUser)?.VoiceChannel;
         if (channel is null)
@@ -34,9 +34,19 @@ public sealed class MediaCommands : CommandModuleBase
             return;
         }
 
-        var audioClient = await channel.ConnectAsync();
-        await SendAsync(audioClient, files[Random.Shared.Next(files.Length)]);
-        await channel.DisconnectAsync();
+        try
+        {
+            var audioClient = await channel.ConnectAsync();
+            await SendAsync(audioClient, files[Random.Shared.Next(files.Length)]);
+            await channel.DisconnectAsync();
+        }
+        catch (DllNotFoundException ex)
+        {
+            await Context.Channel.SendMessageAsync(
+                "Voice playback requires the native `opus` dependency. " +
+                "The package was added, but the runtime DLL is still missing or not loadable on this machine.\n" +
+                $"Details: {ex.Message}");
+        }
     }
 
     [Command("meme")]
