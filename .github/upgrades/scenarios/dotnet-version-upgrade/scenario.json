@@ -1,0 +1,14 @@
+{
+  "scenarioId": "dotnet-version-upgrade",
+  "operationId": "43d0a63f-8b16-4e8a-8f63-3c405f90211a",
+  "description": "Upgrade .NET projects to newer .NET versions",
+  "startTime": "2026-05-12T22:34:56.1739441Z",
+  "lastUpdateTime": "2026-05-12T22:39:31.9821585Z",
+  "stage": "Assessment",
+  "properties": {
+    "currentTask": "01-upgrade-bubenbot-project",
+    "UpgradeTargetFramework": "net10.0",
+    "task:01-upgrade-bubenbot-project:startedAt": "2026-05-12T22:39:31.9140506Z"
+  },
+  "folderPath": ""
+}
