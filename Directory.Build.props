@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <None Include="libdave.dll" CopyToOutputDirectory="PreserveNewest" Condition="Exists('libdave.dll')" />
+    <None Include="libdave.so" CopyToOutputDirectory="PreserveNewest" Condition="Exists('libdave.so')" />
+    <None Include="libdave.o" CopyToOutputDirectory="PreserveNewest" Condition="Exists('libdave.o')" />
+  </ItemGroup>
+</Project>

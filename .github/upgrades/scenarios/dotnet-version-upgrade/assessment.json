@@ -1,0 +1,245 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-05-12T22:38:42.6874222Z",
+  "analysisEndTime": "2026-05-12T22:38:43.8585626Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 4,
+      "incidents": 5,
+      "effort": 5
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 1,
+        "Potential": 3,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 2,
+        "Project": 1,
+        "Api": 2
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "BubenBot.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 5,
+      "properties": {
+        "appName": "BubenBot",
+        "projectKind": "DotNetCoreApp",
+        "frameworks": [
+          "netcoreapp3.1"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 6,
+        "numberOfCodeFiles": 6,
+        "linesTotal": 474,
+        "linesOfCode": 474,
+        "totalApiScanned": 580,
+        "minLinesOfCodeToChange": 2,
+        "maxLinesOfCodeToChange": 2
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "4983db52-90ff-41b4-aa19-994c18b4640a",
+          "ruleId": "NuGet.0002",
+          "projectPath": "BubenBot.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection 10.0.8",
+              "protected": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection 10.0.8"
+            },
+            "kind": "File",
+            "path": "BubenBot.csproj",
+            "snippet": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection 10.0.8",
+            "protectedSnippet": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection 10.0.8",
+            "label": "Microsoft.Extensions.DependencyInjection 5.0.2",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.DependencyInjection",
+              "PackageVersion": "5.0.2",
+              "PackageNewVersion": "10.0.8",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "769cd22c-b98b-456b-b292-dff064f6738f",
+          "ruleId": "NuGet.0005",
+          "projectPath": "BubenBot.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection, 10.0.8",
+              "protected": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection, 10.0.8"
+            },
+            "kind": "File",
+            "path": "BubenBot.csproj",
+            "snippet": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection, 10.0.8",
+            "protectedSnippet": "Microsoft.Extensions.DependencyInjection, 5.0.2\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.DependencyInjection, and replace with new package Microsoft.Extensions.DependencyInjection, 10.0.8",
+            "label": "Microsoft.Extensions.DependencyInjection 5.0.2",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.DependencyInjection",
+              "PackageVersion": "5.0.2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "ef20c994-ba4e-44fa-a634-69ab77063fa9",
+          "ruleId": "Project.0002",
+          "projectPath": "BubenBot.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: netcoreapp3.1\nRecommended target framework: net10.0",
+              "protected": "Current target framework: netcoreapp3.1\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "BubenBot.csproj",
+            "snippet": "Current target framework: netcoreapp3.1\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: netcoreapp3.1\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "netcoreapp3.1",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "658d374d-3537-4158-a8bd-31a87c70ec2d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.Experimental, 6.0.2. Add package reference to System.Runtime.Experimental, 6.0.2",
+          "projectPath": "BubenBot.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());",
+              "protected": "M:System.IO.FileInfo.ToString"
+            },
+            "kind": "File",
+            "path": "Commands.cs",
+            "snippet": "await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());",
+            "protectedSnippet": "M:System.IO.FileInfo.ToString",
+            "label": "M:System.IO.FileInfo.ToString",
+            "properties": {
+              "PackageId": "System.Runtime.Experimental",
+              "PackageNewVersion": "6.0.2"
+            },
+            "line": 223,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "2752b956-2c03-4cfe-bec0-abb2bbc285b6",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.Experimental, 6.0.2. Add package reference to System.Runtime.Experimental, 6.0.2",
+          "projectPath": "BubenBot.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());",
+              "protected": "M:System.IO.FileInfo.ToString"
+            },
+            "kind": "File",
+            "path": "Commands.cs",
+            "snippet": "await Context.Channel.SendFileAsync(Files[rand.Next(0, Files.Count())].ToString());",
+            "protectedSnippet": "M:System.IO.FileInfo.ToString",
+            "label": "M:System.IO.FileInfo.ToString",
+            "properties": {
+              "PackageId": "System.Runtime.Experimental",
+              "PackageNewVersion": "6.0.2"
+            },
+            "line": 219,
+            "column": 20
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0005": {
+      "id": "NuGet.0005",
+      "isFeature": false,
+      "description": "NuGet package is deprecated.\n\nGo to its documentation and if there is a guidance for replacement of functionality provided by this package.",
+      "label": "NuGet package is deprecated",
+      "severity": "Optional",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262531",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
